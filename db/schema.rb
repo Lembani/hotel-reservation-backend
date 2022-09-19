@@ -23,4 +23,31 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_16_143413) do
     t.index ["name"], name: "index_categories_on_name"
   end
 
+  create_table "hotels", force: :cascade do |t|
+    t.string "name"
+    t.decimal "price"
+    t.text "description"
+    t.string "country"
+    t.string "city"
+    t.text "address"
+    t.string "image_url"
+    t.bigint "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_hotels_on_category_id"
+  end
+
+  create_table "reservations", force: :cascade do |t|
+    t.text "reason"
+    t.string "duration"
+    t.datetime "start_day"
+    t.datetime "end_day"
+    t.bigint "hotel_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["hotel_id"], name: "index_reservations_on_hotel_id"
+  end
+
+  add_foreign_key "hotels", "categories"
+  add_foreign_key "reservations", "hotels"
 end

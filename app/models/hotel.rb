@@ -1,7 +1,6 @@
 class Hotel < ApplicationRecord
   has_many :reservations, dependent: :destroy
   has_many :users, through: :reservations
-  belongs_to :category
   validates :name, presence: true
   validates :price, presence: true
   validates :description, presence: true
