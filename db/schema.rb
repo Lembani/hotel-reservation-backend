@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_16_143413) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_19_131954) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -23,4 +23,56 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_16_143413) do
     t.index ["name"], name: "index_categories_on_name"
   end
 
+  create_table "hotels", force: :cascade do |t|
+    t.string "name"
+    t.decimal "price"
+    t.text "description"
+    t.string "country"
+    t.string "city"
+    t.text "address"
+    t.string "image_url"
+    t.bigint "category_id_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id_id"], name: "index_hotels_on_category_id_id"
+  end
+
+  create_table "jwt_denylist", force: :cascade do |t|
+    t.string "jti", null: false
+    t.datetime "exp", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["jti"], name: "index_jwt_denylist_on_jti"
+  end
+
+  create_table "reservations", force: :cascade do |t|
+    t.text "reason"
+    t.string "duration"
+    t.datetime "start_day"
+    t.datetime "end_day"
+    t.bigint "user_id"
+    t.bigint "hotel_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["hotel_id"], name: "index_reservations_on_hotel_id"
+    t.index ["user_id"], name: "index_reservations_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.boolean "admin"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  add_foreign_key "hotels", "categories", column: "category_id_id"
+  add_foreign_key "reservations", "hotels"
+  add_foreign_key "reservations", "users"
 end
