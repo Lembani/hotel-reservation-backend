@@ -5,7 +5,7 @@ class CreateReservations < ActiveRecord::Migration[7.0]
       t.string :duration
       t.datetime :start_day
       t.datetime :end_day
-      # t.references :user, foreign_key: { to_table: 'users' }
+      t.references :user, foreign_key: { to_table: 'users' }
       t.references :hotel, foreign_key: { to_table: 'hotels' }
 
       t.timestamps
