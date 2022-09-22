@@ -3,8 +3,16 @@ class Users::SessionsController < Devise::SessionsController
 
   private
 
-  def respond_with(_resource, _opts = {})
-    render json: { message: 'Logged.' }, status: :ok
+  def respond_with(resource, _opts = {})
+    resource.persisted? ? respond_to_on_create : respond_to_on_create_fail
+  end
+
+  def respond_to_on_create
+    render json: { message: 'Login successful!', error: resource.errors }, status: :ok
+  end
+
+  def respond_to_on_create_fail
+    render json: { message: 'Login failed!', error: resource.errors }
   end
 
   def respond_to_on_destroy
@@ -16,6 +24,6 @@ class Users::SessionsController < Devise::SessionsController
   end
 
   def log_out_failure
-    render json: { message: 'Logged out failure.' }, status: :unauthorized
+    render json: { message: 'Logout failure!' }, status: :unauthorized
   end
 end
