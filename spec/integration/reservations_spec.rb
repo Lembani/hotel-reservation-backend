@@ -21,7 +21,6 @@ RSpec.describe 'GET /api/v1/hotels/:id/reservations', type: :feature do
   end
 
   context 'Show individual reservation' do
-
     it 'returns HTTP ststus ok' do
       visit "/api/v1/hotels/#{hotel_id}/reservations/#{id}"
       assert :success
