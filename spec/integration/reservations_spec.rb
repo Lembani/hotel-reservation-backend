@@ -10,4 +10,14 @@ RSpec.describe 'GET /api/v1/hotels/:id/reservations', type: :feature do
                  address: 'lagos', image_url: 'image.jpg')
   end
 
+  let(:hotel_id) { hotel.id }
+  let(:id) { reservation.id }
+
+  context 'Show all reservations' do
+    it 'returns HTTP ststus ok' do
+      visit "/api/v1/hotels/#{hotel_id}/reservations"
+      assert :success
+    end
+  end
+
 end
