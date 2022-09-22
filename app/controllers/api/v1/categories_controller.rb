@@ -1,6 +1,6 @@
 class Api::V1::CategoriesController < ApplicationController
   before_action :set_category, only: %i[show update destroy]
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
 
   # GET /categories
   def index
@@ -19,7 +19,7 @@ class Api::V1::CategoriesController < ApplicationController
     @category = Category.new(category_params)
 
     if @category.save
-      render json: @category, status: :created, location: @category
+      render json: @category, status: :created
     else
       render json: @category.errors, status: :unprocessable_entity
     end
@@ -37,6 +37,11 @@ class Api::V1::CategoriesController < ApplicationController
   # DELETE /categories/1
   def destroy
     @category.destroy
+  end
+
+  def hotels
+    @category = Category.find(params[:category_id])
+    render json: @category.hotels
   end
 
   private
