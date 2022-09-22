@@ -4,15 +4,17 @@ Rails.application.routes.draw do
                   sessions: 'users/sessions',
                   registrations: 'users/registrations'
               }
-  
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+
   namespace :api do
     namespace :v1 do
       resources :categories
-      resources :hotels
-      resources :reservations
+      resources :hotels do
+        resources :reservations
+      end
     end
   end
+  
+  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   # Defines the root path route ("/")
   # root "articles#index"
 end

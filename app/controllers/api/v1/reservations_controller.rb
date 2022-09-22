@@ -12,10 +12,10 @@ class ReservationsController < ApplicationController
 
   def create
     hotel = Hotel.find(params[:hotel_id])
-    user = User.where(id: current_user.id)
+    # user = User.where(id: current_user.id)
     @created_reservation = Reservation.new(reservation_params)
     @created_reservation.hotel_id = hotel.id
-    @created_reservation.user_id = user[0].id
+    @created_reservation.user_id = current_user.id
 
     if @created_reservation.save
       render json: @created_reservation, status: :created
