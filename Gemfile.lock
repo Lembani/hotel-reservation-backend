@@ -215,6 +215,7 @@ GEM
       dry-configurable (~> 0.13)
       jwt (~> 2.1)
       warden (~> 1.2)
+    webrick (1.7.0)
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
@@ -236,6 +237,7 @@ DEPENDENCIES
   rails (~> 7.0.4)
   rubocop (>= 1.0, < 2.0)
   tzinfo-data
+  webrick
 
 RUBY VERSION
    ruby 3.1.2p20

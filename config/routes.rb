@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users,
+  devise_for :users, defaults: { format: :json },
               controllers: {
                   sessions: 'users/sessions',
                   registrations: 'users/registrations'
@@ -7,14 +7,12 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :categories
+     resources :categories, only: [:index, :show, :edit, :create, :update, :destroy, :hotels] do
+        get 'hotels' => 'categories#hotels'
+      end
       resources :hotels do
         resources :reservations
       end
     end
   end
-  
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  # Defines the root path route ("/")
-  # root "articles#index"
 end
