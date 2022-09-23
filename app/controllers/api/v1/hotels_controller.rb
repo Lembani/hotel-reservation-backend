@@ -45,6 +45,6 @@ class Api::V1::HotelsController < ApplicationController
   private
 
   def hotel_params
-    params.require(:hotel).permit(:name, :price, :description, :country, :city, :address, :image_url)
+    params.require(:hotel).permit(:name, :price, :description, :country, :city, :address, :image_url,:category_id)
   end
 end
