@@ -3,6 +3,7 @@ require 'swagger_helper'
 RSpec.describe 'api/v1/hotels', type: :request do
   path '/api/v1/hotels' do
     get('list hotels') do
+      tags 'Hotels'
       response(200, 'successful') do
         after do |example|
           example.metadata[:response][:content] = {
@@ -16,7 +17,7 @@ RSpec.describe 'api/v1/hotels', type: :request do
     end
 
     post('create hotel') do
-      tags 'Hotel'
+      tags 'Create Hotel'
       consumes 'application/json'
       parameter name: :hotel, in: :body, schema: {
         type: :object,
@@ -47,10 +48,12 @@ RSpec.describe 'api/v1/hotels', type: :request do
     end
   end
   path '/api/v1/hotels/{id}' do
+    
     # You'll want to customize the parameter types...
     parameter name: 'id', in: :path, type: :string, description: 'id'
 
     get('show Hotel') do
+      tags 'Show Hotel'
       response(200, 'successful') do
         let(:id) { Category.create(name: 'Platinum', description: 'Top rated!', rating: 5).id }
         let(:id) do
@@ -74,13 +77,13 @@ RSpec.describe 'api/v1/hotels', type: :request do
       end
     end
 
-    patch('update category') do
+    patch('update Hotel') do
+      tags 'Hotel Update'
       let(:id) { Category.create(name: 'Platinum', description: 'Top rated!', rating: 5).id }
       let(:id) do
         Hotel.create(name: 'Jango', price: '1000', description: 'Best hotel', country: 'Nigeria',
                      category_id: 1, city: 'lagos', address: 'lagos', image_url: 'image.jpg').id
       end
-      tags 'Hotel'
       consumes 'application/json'
       parameter name: :hotel, in: :body, schema: {
         type: :object,
@@ -98,12 +101,12 @@ RSpec.describe 'api/v1/hotels', type: :request do
     end
 
     put('update hotel') do
+      tags 'Hotel Update'
       let(:id) { Category.create(name: 'Platinum', description: 'Top rated!', rating: 5).id }
       let(:id) do
         Hotel.create(name: 'Jango', price: '1000', description: 'Best hotel', country: 'Nigeria',
                      category_id: 1, city: 'lagos', address: 'lagos', image_url: 'image.jpg').id
       end
-      tags 'Hotel'
       consumes 'application/json'
       parameter name: :hotel, in: :body, schema: {
         type: :object,
@@ -120,7 +123,8 @@ RSpec.describe 'api/v1/hotels', type: :request do
       }
     end
 
-    delete('delete category') do
+    delete('delete Hotel') do
+      tags 'Hotel delete'
       response(204, 'successful') do
         let(:id) { Category.create(name: 'Platinum', description: 'Top rated!', rating: 5).id }
         let(:id) do

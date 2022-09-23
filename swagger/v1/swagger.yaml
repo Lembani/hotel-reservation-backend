@@ -122,6 +122,68 @@ paths:
       responses:
         '204':
           description: successful
+  "/api/v1/hotels":
+    get:
+      summary: list hotels
+      tags:
+      - Hotels
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create hotel
+      tags:
+      - Create Hotel
+      parameters: []
+      responses:
+        '201':
+          description: Hotel created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+                price:
+                  type: integer
+                country:
+                  type: string
+                city:
+                  type: string
+                address:
+                  type: string
+                image_url:
+                  type: string
+              required:
+              - name
+              - description
+              - price
+              - country
+              - city
+              - address
+              - image_url
+              - category_id
+  "/api/v1/hotels/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show Hotel
+      tags:
+      - Get Hotel
+      responses:
+        '200':
+          description: Hotel not found
   "/api/v1/hotels/{hotel_id}/reservations":
     parameters:
     - name: hotel_id
