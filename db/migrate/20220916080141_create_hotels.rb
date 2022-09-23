@@ -9,6 +9,7 @@ class CreateHotels < ActiveRecord::Migration[7.0]
       t.string :city
       t.text :address
       t.string :image_url
+      t.references :category, index: true, foreign_key: { to_table: :categories }
 
       t.timestamps
     end
