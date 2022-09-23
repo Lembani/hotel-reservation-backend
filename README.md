@@ -41,12 +41,23 @@ rails server
 
 - Gmail: [![Gmail Badge](https://img.shields.io/badge/-chiacarlyle-black?logo=Gmail&logoColor=EA4335&style=plastic)](mailto:chiacarlyle@gmail.com)
 
+<hr>
+
 👤 **Nwachukwu Ekene**
 - GitHub: [@ekenecf](https://github.com/ekenecf)
 - LinkedIn: [Nwachukwu-Ekene](https://www.linkedin.com/in/nwachukwuekene/)
 - Twitter: [Nwachukwu-Ekene](https://www.twitter.com/ekene070)
 - Gmail: [ekens2u@gmail.com](mailto:ekens2u@gmail.com)
 
+<hr>
+
+👤 **Lembani Sakala**
+- GitHub: [@Lembani](https://github.com/lembani)
+- Twitter: [@Lembani_](https://twitter.com/lembani_)
+- LinkedIn: [lembani-sakala](https://linkedin.com/in/lembani-sakala)
+- Gmail: [lembanisakala@gmail.com](mailto:lembanisakala@gmail.com)
+
+<hr>
 
 ## 🤝 Contributing
 
