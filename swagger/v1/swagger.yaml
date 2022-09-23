@@ -4,11 +4,33 @@ info:
   title: API V1
   version: v1
 paths:
+  "/api/v1/categories/{category_id}/hotels":
+    parameters:
+    - name: category_id
+      in: path
+      description: category_id
+      required: true
+      schema:
+        type: integer
+    get:
+      summary: list all hotels under a category
+      tags:
+      - Categories
+      responses:
+        '200':
+          description: successful
   "/api/v1/categories":
+    get:
+      summary: list all categories
+      tags:
+      - Categories
+      responses:
+        '200':
+          description: successful
     post:
       summary: Creates a category
       tags:
-      - Cats
+      - Categories
       parameters: []
       responses:
         '201':
@@ -31,36 +53,75 @@ paths:
               - name
               - description
   "/api/v1/categories/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: integer
     get:
-      summary: Retrieves a category
+      summary: show category details
       tags:
-      - Cats
-      parameters:
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: string
+      - Categories
       responses:
         '200':
           description: category not found
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  id:
-                    type: integer
-                  name:
-                    type: string
-                  description:
-                    type: string
-                  rating:
-                    type: integer
-                required:
-                - id
-                - name
-                - description
+    patch:
+      summary: update category
+      tags:
+      - Categories
+      parameters: []
+      responses:
+        '200':
+          description: category name updated
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+                rating:
+                  type: integer
+                  default: 'null'
+                  comment: When added, ranges strictly from 1 to 5 inclusive.
+              required:
+              - name
+              - description
+    put:
+      summary: update category
+      tags:
+      - Categories
+      parameters: []
+      responses:
+        '200':
+          description: success!
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+                rating:
+                  type: integer
+              required:
+              - name
+              - description
+    delete:
+      summary: delete category
+      tags:
+      - Categories
+      responses:
+        '204':
+          description: successful
   "/api/v1/hotels/{hotel_id}/reservations":
     parameters:
     - name: hotel_id
