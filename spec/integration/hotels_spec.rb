@@ -1,17 +1,16 @@
 require 'rails_helper'
 
 RSpec.describe 'GET /api/v1/hotels', type: :feature do
-  
   let(:hotel) do
-    Hotel.create(name: 'Villarosa', price: '1000', description: 'Best hotel', country: 'Kenya', category: 'Five star', city: 'Nairobi',
-                 address: 'Nairobi', image_url: 'image.jpg')
+    Hotel.create(name: 'Villarosa', price: '1000', description: 'Best hotel', country: 'Kenya',
+                 category: 'Five star', city: 'Nairobi', address: 'Nairobi', image_url: 'image.jpg')
   end
 
   let(:hotel_id) { hotel.id }
 
   context 'Show all Hotels' do
     it 'returns HTTP ststus ok' do
-      visit "/api/v1/hotels"
+      visit '/api/v1/hotels'
       assert :success
     end
   end
