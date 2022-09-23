@@ -114,7 +114,7 @@ RSpec.describe 'All categories API enpoints', type: :request do
           },
           required: %w[name description]
         }
-  
+
         response '200', 'category updated' do
           let(:category) { { name: 'Platinum', description: 'Top rated hotels' } }
           run_test!
@@ -125,7 +125,7 @@ RSpec.describe 'All categories API enpoints', type: :request do
         end
       end
     end
-  
+
     delete('delete category') do
       response(204, 'successful') do
         let(:id) { Category.create(name: 'Platinum', description: 'Top rated!', rating: 5).id }
