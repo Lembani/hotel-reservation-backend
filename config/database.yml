@@ -14,14 +14,14 @@
 # Configure Using Gemfile
 # gem "pg"
 
-# default: &default
-#   adapter: postgresql
-#   encoding: unicode
-#   username: postgres
-#   password: nwachukwu791
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: postgres
+  password: nwachukwu791
 #   # For details on connection pooling, see Rails configuration guide
 #   # https://guides.rubyonrails.org/configuring.html#database-pooling
-#   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 # #   username: postgres
 # #   password: frank1738
 
@@ -29,14 +29,14 @@
 #   <<: *default
 #   database: hotel_reservation_backend_development
 
-default: &default
-  adapter: postgresql
-  encoding: unicode
-  username: postgres
-  password: frank1738
+# default: &default
+#   adapter: postgresql
+#   encoding: unicode
+#   username: postgres
+#   password: frank1738
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  # pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   <<: *default
