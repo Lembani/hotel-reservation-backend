@@ -1,6 +1,9 @@
 # HOTEL-RESERVATIONS-BACK-END
 
-The backend API for the **HOTEL-RESERVATIONS-Front-End** UI, built with Ruby-on-Rails and Postgresql.
+The backend API for the **HOTEL-RESERVATIONS-Front-End** UI, built with Ruby-on-Rails and Postgresql. The schema was setup following the ERD below.
+
+## Entity Relationship Diagram
+![erd](app/ERD/erd.png)
 
 ## Built with
 - Ruby
@@ -9,7 +12,7 @@ The backend API for the **HOTEL-RESERVATIONS-Front-End** UI, built with Ruby-on-
 - Rubocop
 
 ## Front-End
-You can access the front-end of this application via [this link]()
+You can access the front-end of this application via [this link](https://github.com/Lembani/hotel-reservation-frontend.git).
 
 ## SetUp
 To get a local copy up and running, follow these steps:
