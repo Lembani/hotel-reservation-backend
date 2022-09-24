@@ -36,7 +36,7 @@ RSpec.describe 'All categories API enpoints', type: :request do
         properties: {
           name: { type: :string },
           description: { type: :string },
-          rating: { type: :integer }
+          rating: { type: :integer, default: :null, comment: 'When added, ranges strictly from 1 to 5 inclusive.' }
         },
         required: %w[name description]
       }
@@ -111,7 +111,7 @@ RSpec.describe 'All categories API enpoints', type: :request do
           properties: {
             name: { type: :string },
             description: { type: :string },
-            rating: { type: :integer }
+            rating: { type: :integer, default: :null, comment: 'When added, ranges strictly from 1 to 5 inclusive.' }
           },
           required: %w[name description]
         }

@@ -8,7 +8,7 @@ paths:
     parameters:
     - name: category_id
       in: path
-      description: category_id
+      description: The id of the category whose hotels you want to access.
       required: true
       schema:
         type: integer
@@ -49,6 +49,8 @@ paths:
                   type: string
                 rating:
                   type: integer
+                  default: 'null'
+                  comment: When added, ranges strictly from 1 to 5 inclusive.
               required:
               - name
               - description
@@ -56,7 +58,7 @@ paths:
     parameters:
     - name: id
       in: path
-      description: id
+      description: The id of the specific category you want to access.
       required: true
       schema:
         type: integer
@@ -112,6 +114,8 @@ paths:
                   type: string
                 rating:
                   type: integer
+                  default: 'null'
+                  comment: When added, ranges strictly from 1 to 5 inclusive.
               required:
               - name
               - description
