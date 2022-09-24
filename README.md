@@ -77,10 +77,10 @@ rails server
 
 👤 **Frankline Osoro**
 
-- GitHub: [@frank1738](https://github.com/frank1738)
-- Twitter: [@frankhiggins08](https://twitter.com/frankhiggins08)
-- LinkedIn: [Frankline Osoro](http://www.linkedin.com/in/frankline-osoro-b526ba18b)
-- Gmail: [frankline osoro](mailto:franklineosoro08@gmail.com)
+- GitHub: [![LinkedIn Badge](https://img.shields.io/badge/-frank1738-black?logo=LinkedIn&logoColor=0A66C2&style=plastic)](https://github.com/frank1738)
+- Twitter: [![LinkedIn Badge](https://img.shields.io/badge/-frank1738-black?logo=LinkedIn&logoColor=0A66C2&style=plastic)](https://twitter.com/frankhiggins08)
+- LinkedIn: [![LinkedIn Badge](https://img.shields.io/badge/-frank1738-black?logo=LinkedIn&logoColor=0A66C2&style=plastic)](http://www.linkedin.com/in/frankline-osoro-b526ba18b)
+- Gmail: [![LinkedIn Badge](https://img.shields.io/badge/-frank1738-black?logo=LinkedIn&logoColor=0A66C2&style=plastic)](mailto:franklineosoro08@gmail.com)
 
 ## 🤝 Contributing
 
