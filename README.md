@@ -8,8 +8,8 @@ The backend API for the **HOTEL-RESERVATIONS-Front-End** UI, built with Ruby-on-
 
 ## Built with
 
-- Ruby
-- Rails (RoR)
+- Ruby version 3.1.2
+- Rails (RoR) version 7.0.4
 - Postgresql
 - Rubocop
 
