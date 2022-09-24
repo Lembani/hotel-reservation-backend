@@ -2,7 +2,7 @@ require 'swagger_helper'
 
 RSpec.describe 'All categories API enpoints', type: :request do
   path '/api/v1/categories/{category_id}/hotels' do
-    parameter name: 'category_id', in: :path, type: :integer, description: 'category_id'
+    parameter name: 'category_id', in: :path, type: :integer, description: 'The id of the category whose hotels you want to access.'
 
     get('list all hotels under a category') do
       tags 'Categories'
@@ -54,7 +54,7 @@ RSpec.describe 'All categories API enpoints', type: :request do
   end
 
   path '/api/v1/categories/{id}' do
-    parameter name: 'id', in: :path, type: :integer, description: 'id'
+    parameter name: 'id', in: :path, type: :integer, description: 'The id of the specific category you want to access.'
 
     get('show category details') do
       tags 'Categories'
