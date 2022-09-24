@@ -28,7 +28,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_19_131954) do
     t.decimal "price"
     t.text "description"
     t.string "country"
-    t.string "category"
     t.string "city"
     t.text "address"
     t.string "image_url"

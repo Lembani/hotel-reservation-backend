@@ -126,7 +126,7 @@ paths:
     get:
       summary: list hotels
       tags:
-      - Hotels
+      - Hotels List
       responses:
         '200':
           description: successful
@@ -180,10 +180,121 @@ paths:
     get:
       summary: show Hotel
       tags:
-      - Get Hotel
+      - Show Hotel
       responses:
         '200':
           description: Hotel not found
+    patch:
+      summary: update Hotel
+      tags:
+      - Update Hotel
+      parameters: []
+      responses:
+        '200':
+          description: Hotel updated
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+                price:
+                  type: integer
+                country:
+                  type: string
+                city:
+                  type: string
+                address:
+                  type: string
+                image_url:
+                  type: string
+              required:
+              - name
+              - description
+              - price
+              - country
+              - city
+              - address
+              - image_url
+              - category_id
+    put:
+      summary: update hotel
+      tags:
+      - Update Hotel
+      parameters: []
+      responses:
+        '200':
+          description: Hotel updated
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+                price:
+                  type: integer
+                country:
+                  type: string
+                city:
+                  type: string
+                address:
+                  type: string
+                image_url:
+                  type: string
+              required:
+              - name
+              - description
+              - price
+              - country
+              - city
+              - address
+              - image_url
+              - category_id
+    delete:
+      summary: delete Hotel
+      tags:
+      - Delete Hotel
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+                price:
+                  type: integer
+                country:
+                  type: string
+                city:
+                  type: string
+                address:
+                  type: string
+                image_url:
+                  type: string
+              required:
+              - name
+              - description
+              - price
+              - country
+              - city
+              - address
+              - image_url
+              - category_id
   "/api/v1/hotels/{hotel_id}/reservations":
     parameters:
     - name: hotel_id
