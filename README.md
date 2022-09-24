@@ -51,6 +51,17 @@ rails server
 rspec spec
 ```
 
+## API Documentation
+To access the API documentation,
+* Start your rails server by typing the following command in your terminal:
+```
+rails server
+```
+* When your server starts, migrate to the browser window where it's running and add the following endpoint in the address bar:
+`/api-docs`
+* There you go! A complete documentation of all the API endpoints available for this application.
+* **Enjoy!!!**
+
 ## Authors
 
 👤 **Chia Carlyle**
