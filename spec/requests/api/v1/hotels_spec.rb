@@ -95,8 +95,9 @@ RSpec.describe 'api/v1/hotels', type: :request do
       response '200', 'Hotel updated' do
         let(:category) { Category.create(name: 'Konja', description: 'Amazing world', rating: 5) }
         let(:hotel) do
-          Hotel.create(id: 1, name: 'Jango', price: '1000', description: 'Best hotel', country: 'Nigeria', category:, city: 'lagos',
-                       address: 'lagos', image_url: 'image.jpg')
+          Hotel.create(id: 1, name: 'Jango', price: '1000', description: 'Best hotel',
+                       country: 'Nigeria', category:, city: 'lagos', address: 'lagos',
+                       image_url: 'image.jpg')
         end
         let(:id) { 1 }
         run_test!
@@ -122,7 +123,8 @@ RSpec.describe 'api/v1/hotels', type: :request do
       response '200', 'Hotel updated' do
         let(:category) { Category.create(name: 'Konja', description: 'Amazing world', rating: 5) }
         let(:hotel) do
-          Hotel.create(id: 1, name: 'Jango', price: '1000', description: 'Best hotel', country: 'Nigeria', category:, city: 'lagos',
+          Hotel.create(id: 1, name: 'Jango', price: '1000', description: 'Best hotel',
+                       country: 'Nigeria', category:, city: 'lagos',
                        address: 'lagos', image_url: 'image.jpg')
         end
         let(:id) { 1 }
@@ -149,7 +151,8 @@ RSpec.describe 'api/v1/hotels', type: :request do
       response(200, 'successful') do
         let(:category) { Category.create(name: 'Konja', description: 'Amazing world', rating: 5) }
         let(:hotel) do
-          Hotel.create(id: 1, name: 'Jango', price: '1000', description: 'Best hotel', country: 'Nigeria', category:, city: 'lagos',
+          Hotel.create(id: 1, name: 'Jango', price: '1000', description: 'Best hotel',
+                       country: 'Nigeria', category:, city: 'lagos',
                        address: 'lagos', image_url: 'image.jpg')
         end
         let(:id) { 1 }
