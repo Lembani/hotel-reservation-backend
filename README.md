@@ -43,6 +43,14 @@ bundle install
 rails server
 ```
 
+## Run Tests
+
+- To run tests, Run the following command on your terminal
+
+```
+rspec spec
+```
+
 ## Authors
 
 👤 **Chia Carlyle**
