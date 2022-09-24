@@ -80,6 +80,7 @@ rails server
 - GitHub: [@frank1738](https://github.com/frank1738)
 - Twitter: [@frankhiggins08](https://twitter.com/frankhiggins08)
 - LinkedIn: [Frankline Osoro](http://www.linkedin.com/in/frankline-osoro-b526ba18b)
+- Gmail: [lembanisakala@gmail.com](mailto:franklineosoro08@gmail.com)
 
 ## 🤝 Contributing
 
