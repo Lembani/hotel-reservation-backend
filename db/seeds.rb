@@ -92,4 +92,3 @@ hotels = Hotel.create!([
 }
 ]
 )
-
