@@ -8,4 +8,8 @@ class ApplicationController < ActionController::API
     devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:name, :email, :password, :password_confirmation) }
     devise_parameter_sanitizer.permit(:sign_in) { |u| u.permit(:email, :password) }
   end
+
+  def after_sign_in_path_for(_resource)
+    api_v1_hotels_path
+  end
 end
