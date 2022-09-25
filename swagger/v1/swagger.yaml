@@ -8,7 +8,7 @@ paths:
     parameters:
     - name: category_id
       in: path
-      description: category_id
+      description: The id of the category whose hotels you want to access.
       required: true
       schema:
         type: integer
@@ -49,6 +49,8 @@ paths:
                   type: string
                 rating:
                   type: integer
+                  default: 'null'
+                  comment: When added, ranges strictly from 1 to 5 inclusive.
               required:
               - name
               - description
@@ -56,7 +58,7 @@ paths:
     parameters:
     - name: id
       in: path
-      description: id
+      description: The id of the specific category you want to access.
       required: true
       schema:
         type: integer
@@ -112,6 +114,8 @@ paths:
                   type: string
                 rating:
                   type: integer
+                  default: 'null'
+                  comment: When added, ranges strictly from 1 to 5 inclusive.
               required:
               - name
               - description
@@ -295,58 +299,6 @@ paths:
               - address
               - image_url
               - category_id
-  "/api/v1/hotels/{hotel_id}/reservations":
-    parameters:
-    - name: hotel_id
-      in: path
-      description: hotel_id
-      required: true
-      schema:
-        type: string
-    get:
-      summary: list reservations
-      responses:
-        '200':
-          description: successful
-    post:
-      summary: create reservation
-      responses:
-        '200':
-          description: successful
-  "/api/v1/hotels/{hotel_id}/reservations/{id}":
-    parameters:
-    - name: hotel_id
-      in: path
-      description: hotel_id
-      required: true
-      schema:
-        type: string
-    - name: id
-      in: path
-      description: id
-      required: true
-      schema:
-        type: string
-    get:
-      summary: show reservation
-      responses:
-        '200':
-          description: successful
-    patch:
-      summary: update reservation
-      responses:
-        '200':
-          description: successful
-    put:
-      summary: update reservation
-      responses:
-        '200':
-          description: successful
-    delete:
-      summary: delete reservation
-      responses:
-        '200':
-          description: successful
 servers:
 - url: https://{defaultHost}
   variables:
