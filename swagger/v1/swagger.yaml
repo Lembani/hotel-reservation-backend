@@ -130,14 +130,14 @@ paths:
     get:
       summary: list hotels
       tags:
-      - Hotels List
+      - Hotels
       responses:
         '200':
           description: successful
     post:
       summary: create hotel
       tags:
-      - Create Hotel
+      - Hotels
       parameters: []
       responses:
         '201':
@@ -184,14 +184,14 @@ paths:
     get:
       summary: show Hotel
       tags:
-      - Show Hotel
+      - Hotels
       responses:
         '200':
           description: Hotel not found
     patch:
       summary: update Hotel
       tags:
-      - Update Hotel
+      - Hotels
       parameters: []
       responses:
         '200':
@@ -228,7 +228,7 @@ paths:
     put:
       summary: update hotel
       tags:
-      - Update Hotel
+      - Hotels
       parameters: []
       responses:
         '200':
@@ -265,7 +265,7 @@ paths:
     delete:
       summary: delete Hotel
       tags:
-      - Delete Hotel
+      - Hotels
       parameters: []
       responses:
         '200':

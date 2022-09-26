@@ -3,7 +3,7 @@ require 'swagger_helper'
 RSpec.describe 'api/v1/hotels', type: :request do
   path '/api/v1/hotels' do
     get('list hotels') do
-      tags 'Hotels List'
+      tags 'Hotels'
       response(200, 'successful') do
         after do |example|
           example.metadata[:response][:content] = {
@@ -17,7 +17,7 @@ RSpec.describe 'api/v1/hotels', type: :request do
     end
 
     post('create hotel') do
-      tags 'Create Hotel'
+      tags 'Hotels'
       consumes 'application/json'
       parameter name: :hotel, in: :body, schema: {
         type: :object,
@@ -52,7 +52,7 @@ RSpec.describe 'api/v1/hotels', type: :request do
     parameter name: 'id', in: :path, type: :string, description: 'id'
 
     get('show Hotel') do
-      tags 'Show Hotel'
+      tags 'Hotels'
       response(200, 'successful') do
         let(:id) { Category.create(name: 'Platinum', description: 'Top rated!', rating: 5).id }
         let(:id) do
@@ -77,7 +77,7 @@ RSpec.describe 'api/v1/hotels', type: :request do
     end
 
     patch('update Hotel') do
-      tags 'Update Hotel'
+      tags 'Hotels'
       consumes 'application/json'
       parameter name: :hotel, in: :body, schema: {
         type: :object,
@@ -105,7 +105,7 @@ RSpec.describe 'api/v1/hotels', type: :request do
     end
 
     put('update hotel') do
-      tags 'Update Hotel'
+      tags 'Hotels'
       consumes 'application/json'
       parameter name: :hotel, in: :body, schema: {
         type: :object,
@@ -133,7 +133,7 @@ RSpec.describe 'api/v1/hotels', type: :request do
     end
 
     delete('delete Hotel') do
-      tags 'Delete Hotel'
+      tags 'Hotels'
       consumes 'application/json'
       parameter name: :hotel, in: :body, schema: {
         type: :object,
