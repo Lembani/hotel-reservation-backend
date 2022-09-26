@@ -309,13 +309,15 @@ paths:
         type: integer
     get:
       summary: list reservations
+      tags:
+      - Reservations
       responses:
         '200':
           description: successful
     post:
       summary: create reservation
       tags:
-      - Create Hotel
+      - Reservations
       parameters: []
       responses:
         '201':
@@ -361,13 +363,15 @@ paths:
         type: string
     get:
       summary: show reservation
+      tags:
+      - Reservations
       responses:
         '200':
           description: successful
     patch:
       summary: update reservation
       tags:
-      - Update Hotel
+      - Reservations
       parameters: []
       responses:
         '200':
@@ -400,7 +404,7 @@ paths:
     put:
       summary: update reservation
       tags:
-      - Update Hotel
+      - Reservations
       parameters: []
       responses:
         '200':
@@ -433,7 +437,7 @@ paths:
     delete:
       summary: update reservation
       tags:
-      - Update Hotel
+      - Reservations
       parameters: []
       responses:
         '200':

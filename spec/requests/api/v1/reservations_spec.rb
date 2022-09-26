@@ -5,6 +5,7 @@ RSpec.describe 'api/v1/reservations', type: :request do
     # You'll want to customize the parameter types...
     parameter name: 'hotel_id', in: :path, type: :integer, description: 'hotel_id'
     get('list reservations') do
+      tags 'Reservations'
       response(200, 'successful') do
         let(:id) { Category.create(name: 'Platinum', description: 'Top rated!', rating: 5).id }
 
@@ -24,7 +25,7 @@ RSpec.describe 'api/v1/reservations', type: :request do
     end
 
     post('create reservation') do
-      tags 'Create Hotel'
+      tags 'Reservations'
       consumes 'application/json'
       parameter name: :reservation, in: :body, schema: {
         type: :object,
@@ -65,6 +66,7 @@ RSpec.describe 'api/v1/reservations', type: :request do
     parameter name: 'id', in: :path, type: :string, description: 'id'
 
     get('show reservation') do
+      tags 'Reservations'
       response(200, 'successful') do
         let(:user_id) do
           User.create!(name: 'example', email: 'example@gmail.com', password: '123456',
@@ -96,7 +98,7 @@ RSpec.describe 'api/v1/reservations', type: :request do
     end
 
     patch('update reservation') do
-      tags 'Update Hotel'
+      tags 'Reservations'
       consumes 'application/json'
       parameter name: :reservation, in: :body, schema: {
         type: :object,
@@ -132,7 +134,7 @@ RSpec.describe 'api/v1/reservations', type: :request do
     end
 
     put('update reservation') do
-      tags 'Update Hotel'
+      tags 'Reservations'
       consumes 'application/json'
       parameter name: :reservation, in: :body, schema: {
         type: :object,
@@ -168,7 +170,7 @@ RSpec.describe 'api/v1/reservations', type: :request do
     end
 
     delete('update reservation') do
-      tags 'Update Hotel'
+      tags 'Reservations'
       consumes 'application/json'
       parameter name: :reservation, in: :body, schema: {
         type: :object,
