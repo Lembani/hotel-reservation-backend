@@ -4,7 +4,6 @@ RSpec.describe 'api/v1/reservations', type: :request do
   path '/api/v1/hotels/{hotel_id}/reservations' do
     # You'll want to customize the parameter types...
     parameter name: 'hotel_id', in: :path, type: :integer, description: 'hotel_id'
-
     get('list reservations') do
       response(200, 'successful') do
         let(:id) { Category.create(name: 'Platinum', description: 'Top rated!', rating: 5).id }
@@ -13,7 +12,6 @@ RSpec.describe 'api/v1/reservations', type: :request do
           Hotel.create(name: 'Jango', price: '1000', description: 'Best hotel', country: 'Nigeria',
                        category_id: id, city: 'lagos', address: 'lagos', image_url: 'image.jpg').id
         end
-
         after do |example|
           example.metadata[:response][:content] = {
             'application/json' => {
