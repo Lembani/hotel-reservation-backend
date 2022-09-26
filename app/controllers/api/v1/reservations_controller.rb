@@ -1,5 +1,6 @@
 class Api::V1::ReservationsController < ApplicationController
   before_action :set_reservation_params, only: %i[show update destroy]
+  # before_action :authenticate_user!
 
   def index
     @reservations = Reservation.all
@@ -11,11 +12,9 @@ class Api::V1::ReservationsController < ApplicationController
   end
 
   def create
-    hotel = Hotel.find(params[:hotel_id])
-    # user = User.where(id: current_user.id)
+    @hotel = Hotel.find(params[:hotel_id])
     @created_reservation = Reservation.new(reservation_params)
-    @created_reservation.hotel_id = hotel.id
-    @created_reservation.user_id = current_user.id
+    @created_reservation.hotel_id = @hotel.id
 
     if @created_reservation.save
       render json: @created_reservation, status: :created
@@ -27,7 +26,7 @@ class Api::V1::ReservationsController < ApplicationController
 
   def update
     if @reservation.update(reservation_params)
-      render json: @reservation, status: :updated
+      render json: @reservation, status: :ok
     else
       render json: { errors: @reservation.errors.full_messages },
              status: :unprocessible_entity
@@ -49,6 +48,6 @@ class Api::V1::ReservationsController < ApplicationController
   end
 
   def reservation_params
-    params.require(:reservation).permit(:reason, :duration, :start_day, :end_day)
+    params.require(:reservation).permit(:reason, :duration, :start_day, :end_day, :user_id, :hotel_id)
   end
 end

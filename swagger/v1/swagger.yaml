@@ -1,0 +1,474 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/api/v1/categories/{category_id}/hotels":
+    parameters:
+    - name: category_id
+      in: path
+      description: The id of the category whose hotels you want to access.
+      required: true
+      schema:
+        type: integer
+    get:
+      summary: list all hotels under a category
+      tags:
+      - Categories
+      responses:
+        '200':
+          description: successful
+  "/api/v1/categories":
+    get:
+      summary: list all categories
+      tags:
+      - Categories
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: Creates a category
+      tags:
+      - Categories
+      parameters: []
+      responses:
+        '201':
+          description: category created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+                rating:
+                  type: integer
+                  default: 'null'
+                  comment: When added, ranges strictly from 1 to 5 inclusive.
+              required:
+              - name
+              - description
+  "/api/v1/categories/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: The id of the specific category you want to access.
+      required: true
+      schema:
+        type: integer
+    get:
+      summary: show category details
+      tags:
+      - Categories
+      responses:
+        '200':
+          description: category not found
+    patch:
+      summary: update category
+      tags:
+      - Categories
+      parameters: []
+      responses:
+        '200':
+          description: category name updated
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+                rating:
+                  type: integer
+                  default: 'null'
+                  comment: When added, ranges strictly from 1 to 5 inclusive.
+              required:
+              - name
+              - description
+    put:
+      summary: update category
+      tags:
+      - Categories
+      parameters: []
+      responses:
+        '200':
+          description: success!
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+                rating:
+                  type: integer
+                  default: 'null'
+                  comment: When added, ranges strictly from 1 to 5 inclusive.
+              required:
+              - name
+              - description
+    delete:
+      summary: delete category
+      tags:
+      - Categories
+      responses:
+        '204':
+          description: successful
+  "/api/v1/hotels":
+    get:
+      summary: list hotels
+      tags:
+      - Hotels
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create hotel
+      tags:
+      - Hotels
+      parameters: []
+      responses:
+        '201':
+          description: Hotel created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+                price:
+                  type: integer
+                country:
+                  type: string
+                city:
+                  type: string
+                address:
+                  type: string
+                image_url:
+                  type: string
+              required:
+              - name
+              - description
+              - price
+              - country
+              - city
+              - address
+              - image_url
+              - category_id
+  "/api/v1/hotels/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show Hotel
+      tags:
+      - Hotels
+      responses:
+        '200':
+          description: Hotel not found
+    patch:
+      summary: update Hotel
+      tags:
+      - Hotels
+      parameters: []
+      responses:
+        '200':
+          description: Hotel updated
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+                price:
+                  type: integer
+                country:
+                  type: string
+                city:
+                  type: string
+                address:
+                  type: string
+                image_url:
+                  type: string
+              required:
+              - name
+              - description
+              - price
+              - country
+              - city
+              - address
+              - image_url
+              - category_id
+    put:
+      summary: update hotel
+      tags:
+      - Hotels
+      parameters: []
+      responses:
+        '200':
+          description: Hotel updated
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+                price:
+                  type: integer
+                country:
+                  type: string
+                city:
+                  type: string
+                address:
+                  type: string
+                image_url:
+                  type: string
+              required:
+              - name
+              - description
+              - price
+              - country
+              - city
+              - address
+              - image_url
+              - category_id
+    delete:
+      summary: delete Hotel
+      tags:
+      - Hotels
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+                price:
+                  type: integer
+                country:
+                  type: string
+                city:
+                  type: string
+                address:
+                  type: string
+                image_url:
+                  type: string
+              required:
+              - name
+              - description
+              - price
+              - country
+              - city
+              - address
+              - image_url
+              - category_id
+  "/api/v1/hotels/{hotel_id}/reservations":
+    parameters:
+    - name: hotel_id
+      in: path
+      description: hotel_id
+      required: true
+      schema:
+        type: integer
+    get:
+      summary: list reservations
+      tags:
+      - Reservations
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create reservation
+      tags:
+      - Reservations
+      parameters: []
+      responses:
+        '201':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                reason:
+                  type: text
+                duration:
+                  type: string
+                start_day:
+                  type: datetime
+                end_day:
+                  type: datetime
+                user_id:
+                  type: integer
+                hotel_id:
+                  type: integer
+              required:
+              - reason
+              - duration
+              - start_day
+              - end_day
+              - user_id
+              - hotel_id
+  "/api/v1/hotels/{hotel_id}/reservations/{id}":
+    parameters:
+    - name: hotel_id
+      in: path
+      description: hotel_id
+      required: true
+      schema:
+        type: string
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show reservation
+      tags:
+      - Reservations
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: update reservation
+      tags:
+      - Reservations
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                reason:
+                  type: text
+                duration:
+                  type: string
+                start_day:
+                  type: datetime
+                end_day:
+                  type: datetime
+                user_id:
+                  type: integer
+                hotel_id:
+                  type: integer
+              required:
+              - reason
+              - duration
+              - start_day
+              - end_day
+              - user_id
+              - hotel_id
+    put:
+      summary: update reservation
+      tags:
+      - Reservations
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                reason:
+                  type: text
+                duration:
+                  type: string
+                start_day:
+                  type: datetime
+                end_day:
+                  type: datetime
+                user_id:
+                  type: integer
+                hotel_id:
+                  type: integer
+              required:
+              - reason
+              - duration
+              - start_day
+              - end_day
+              - user_id
+              - hotel_id
+    delete:
+      summary: update reservation
+      tags:
+      - Reservations
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                reason:
+                  type: text
+                duration:
+                  type: string
+                start_day:
+                  type: datetime
+                end_day:
+                  type: datetime
+                user_id:
+                  type: integer
+                hotel_id:
+                  type: integer
+              required:
+              - reason
+              - duration
+              - start_day
+              - end_day
+              - user_id
+              - hotel_id
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: 127.0.0.1:3000/
