@@ -299,6 +299,170 @@ paths:
               - address
               - image_url
               - category_id
+  "/api/v1/hotels/{hotel_id}/reservations":
+    parameters:
+    - name: hotel_id
+      in: path
+      description: hotel_id
+      required: true
+      schema:
+        type: integer
+    get:
+      summary: list reservations
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create reservation
+      tags:
+      - Create Hotel
+      parameters: []
+      responses:
+        '201':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                reason:
+                  type: text
+                duration:
+                  type: string
+                start_day:
+                  type: datetime
+                end_day:
+                  type: datetime
+                user_id:
+                  type: integer
+                hotel_id:
+                  type: integer
+              required:
+              - reason
+              - duration
+              - start_day
+              - end_day
+              - user_id
+              - hotel_id
+  "/api/v1/hotels/{hotel_id}/reservations/{id}":
+    parameters:
+    - name: hotel_id
+      in: path
+      description: hotel_id
+      required: true
+      schema:
+        type: string
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show reservation
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: update reservation
+      tags:
+      - Update Hotel
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                reason:
+                  type: text
+                duration:
+                  type: string
+                start_day:
+                  type: datetime
+                end_day:
+                  type: datetime
+                user_id:
+                  type: integer
+                hotel_id:
+                  type: integer
+              required:
+              - reason
+              - duration
+              - start_day
+              - end_day
+              - user_id
+              - hotel_id
+    put:
+      summary: update reservation
+      tags:
+      - Update Hotel
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                reason:
+                  type: text
+                duration:
+                  type: string
+                start_day:
+                  type: datetime
+                end_day:
+                  type: datetime
+                user_id:
+                  type: integer
+                hotel_id:
+                  type: integer
+              required:
+              - reason
+              - duration
+              - start_day
+              - end_day
+              - user_id
+              - hotel_id
+    delete:
+      summary: update reservation
+      tags:
+      - Update Hotel
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                reason:
+                  type: text
+                duration:
+                  type: string
+                start_day:
+                  type: datetime
+                end_day:
+                  type: datetime
+                user_id:
+                  type: integer
+                hotel_id:
+                  type: integer
+              required:
+              - reason
+              - duration
+              - start_day
+              - end_day
+              - user_id
+              - hotel_id
 servers:
 - url: https://{defaultHost}
   variables:
