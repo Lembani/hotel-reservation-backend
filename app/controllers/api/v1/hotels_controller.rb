@@ -1,4 +1,7 @@
 class Api::V1::HotelsController < ApplicationController
+  before_action :logged_in, only: %i[index show]
+  before_action :user_ability, except: %i[index show]
+
   def index
     @hotels = Hotel.all
     render json: { status: 'Success', message: 'loaded hotels', hotels: @hotels }, status: :ok
@@ -46,5 +49,12 @@ class Api::V1::HotelsController < ApplicationController
 
   def hotel_params
     params.require(:hotel).permit(:name, :price, :description, :country, :city, :address, :image_url, :category_id)
+  end
+
+  def user_ability
+    authorize! :manage, @hotel
+  rescue CanCan::AccessDenied
+    render json: { errors: 'You are not authorized to perform this action' },
+           status: :unauthorized
   end
 end
