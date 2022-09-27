@@ -8,15 +8,15 @@ class Users::SessionsController < Devise::SessionsController
   end
 
   def respond_to_on_create
-    render json: { message: 'Login successful!', error: resource.errors }, status: :ok
+    render json: { message: 'Login successful!', rsc: resource, usr: response.headers, error: resource.errors }, status: :ok
   end
 
   def respond_to_on_create_fail
-    render json: { message: 'Login failed!', error: resource.errors }
+    render json: { message: 'Invalid username or password!', error: resource.errors }, status: :unauthorized
   end
 
   def respond_to_on_destroy
-    current_user ? log_out_success : log_out_failure
+    current_user.present? ? log_out_failure : log_out_success
   end
 
   def log_out_success
@@ -24,6 +24,6 @@ class Users::SessionsController < Devise::SessionsController
   end
 
   def log_out_failure
-    render json: { message: 'Logout failure!' }, status: :unauthorized
+    render json: { message: 'Logout failure!', error: resource.errors }, status: 400
   end
 end
