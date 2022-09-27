@@ -2,6 +2,10 @@ class ApplicationController < ActionController::API
   respond_to :json
   before_action :update_allowed_parameters, if: :devise_controller?
 
+  def logged_in
+    render json: { error: 'You are not logged in!' }, status: :forbidden unless !!current_user
+  end
+
   protected
 
   def update_allowed_parameters
