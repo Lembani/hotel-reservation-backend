@@ -1,6 +1,8 @@
 class Api::V1::ReservationsController < ApplicationController
   before_action :set_reservation_params, only: %i[show update destroy]
   # before_action :authenticate_user!
+  before_action :logged_in, only: %i[index show]
+  before_action :user_ability, except: %i[update destroy]
 
   def index
     @reservations = Reservation.all
@@ -45,9 +47,18 @@ class Api::V1::ReservationsController < ApplicationController
 
   def set_reservation_params
     @reservation = Reservation.includes(:hotel).find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    render json: { errors: 'Reservation not found' }, status: :not_found
   end
 
   def reservation_params
     params.require(:reservation).permit(:reason, :duration, :start_day, :end_day, :user_id, :hotel_id)
+  end
+
+  def user_ability
+    authorize! :manage, @reservation
+  rescue CanCan::AccessDenied
+    render json: { errors: 'You are not authorized to perform this action' },
+           status: :unauthorized
   end
 end
