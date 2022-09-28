@@ -1,5 +1,5 @@
 class Api::V1::HotelsController < ApplicationController
-  before_action :logged_in, only: %i[index show]
+  before_action :logged_in, except: %i[index show]
   before_action :user_ability, except: %i[index show]
 
   def index

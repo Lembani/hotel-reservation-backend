@@ -8,7 +8,7 @@ class Users::SessionsController < Devise::SessionsController
   end
 
   def respond_to_on_create
-    render json: { message: 'Login successful!', rsc: resource, usr: response.headers, error: resource.errors },
+    render json: { message: 'Login successful!', user: resource, error: resource.errors },
            status: :ok
   end
 
