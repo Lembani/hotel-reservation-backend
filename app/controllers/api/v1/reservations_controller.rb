@@ -1,6 +1,5 @@
 class Api::V1::ReservationsController < ApplicationController
   before_action :set_reservation_params, only: %i[show update destroy]
-  # before_action :authenticate_user!
   # before_action :logged_in, except: %i[index show]
   # before_action :user_ability, except: %i[update destroy]
 
