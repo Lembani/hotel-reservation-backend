@@ -53,10 +53,11 @@ rspec spec
 
 ## Deployment
 
-The server was deployed on heroku, and runs on [this domain](https://stark-badlands-38572.herokuapp.com/).
+The server was deployed on heroku, and runs on [this domain](https://stark-badlands-38572.herokuapp.com/api/v1/hotels).
+The above endpoint permits you to see all hotels available. Checkout the api documentation below for the other endpoints.
 
 ## API Documentation
-Visit [this endpoint](https://stark-badlands-38572.herokuapp.com/) to see a complete documentation of all available endpoints for this API.
+Visit [this endpoint](https://stark-badlands-38572.herokuapp.com/api-docs) to see a complete documentation of all available endpoints for this API.
 We hope this helps you find your way around our API.
 
 ## Authors
