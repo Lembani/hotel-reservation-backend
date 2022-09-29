@@ -15,8 +15,7 @@ class Api::V1::ReservationsController < ApplicationController
 
   def create
     @hotel = Hotel.find(params[:hotel_id])
-    # user_id = current_user.id
-    
+
     @created_reservation = Reservation.new(reservation_params)
     @created_reservation.hotel_id = @hotel.id
 
