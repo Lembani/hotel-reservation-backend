@@ -17,4 +17,10 @@ Rails.application.routes.draw do
       end
     end
   end
+
+  namespace :api do
+    namespace :v1 do
+      resources :reservations, only: [:index]
+    end
+  end
 end
