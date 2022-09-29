@@ -51,16 +51,13 @@ rails server
 rspec spec
 ```
 
+## Deployment
+
+The server was deployed on heroku, and runs on [this domain](https://stark-badlands-38572.herokuapp.com/).
+
 ## API Documentation
-To access the API documentation,
-* Start your rails server by typing the following command in your terminal:
-```
-rails server
-```
-* When your server starts, migrate to the browser window where it's running and add the following endpoint in the address bar:
-`/api-docs`
-* There you go! A complete documentation of all the API endpoints available for this application.
-* **Enjoy!!!**
+Visit [this endpoint](https://stark-badlands-38572.herokuapp.com/) to see a complete documentation of all available endpoints for this API.
+We hope this helps you find your way around our API.
 
 ## Authors
 
