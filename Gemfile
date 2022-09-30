@@ -21,8 +21,6 @@ gem 'devise'
 
 gem 'devise-jwt'
 
-gem 'cancancan'
-
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem "jbuilder"
 
