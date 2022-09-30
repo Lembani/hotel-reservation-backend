@@ -1,5 +1,4 @@
 class Api::V1::HotelsController < ApplicationController
-
   def index
     @hotels = Hotel.all
 
@@ -71,5 +70,4 @@ class Api::V1::HotelsController < ApplicationController
   def hotel_params
     params.require(:hotel).permit(:name, :price, :description, :country, :city, :address, :image_url, :category_id)
   end
-
 end
