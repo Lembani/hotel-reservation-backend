@@ -73,7 +73,6 @@ GEM
     bootsnap (1.13.0)
       msgpack (~> 1.2)
     builder (3.2.4)
-    cancancan (3.4.0)
     capybara (3.37.1)
       addressable
       matrix
@@ -276,7 +275,6 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
-  cancancan
   capybara
   debug
   devise
@@ -286,6 +284,7 @@ DEPENDENCIES
   puma (~> 5.0)
   rack-cors
   rails (~> 7.0.4)
+  rake
   rspec-rails
   rswag
   rubocop (>= 1.0, < 2.0)
