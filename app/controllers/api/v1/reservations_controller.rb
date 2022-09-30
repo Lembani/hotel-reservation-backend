@@ -1,10 +1,8 @@
 class Api::V1::ReservationsController < ApplicationController
   before_action :set_reservation_params, only: %i[show update destroy]
-  # before_action :logged_in, except: %i[index show]
-  # before_action :user_ability, except: %i[update destroy]
 
   def index
-    @reservations = Reservation.all
+    @reservations = Reservation.all.order(created_at: :desc)
     render json: @reservations, status: :ok
   end
 
@@ -54,11 +52,4 @@ class Api::V1::ReservationsController < ApplicationController
   def reservation_params
     params.require(:reservation).permit(:reason, :duration, :start_day, :end_day, :hotel_id, :user_id)
   end
-
-  # def user_ability
-  #   authorize! :manage, @reservation
-  # rescue CanCan::AccessDenied
-  #   render json: { errors: 'You are not authorized to perform this action' },
-  #          status: :unauthorized
-  # end
 end
