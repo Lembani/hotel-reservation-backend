@@ -25,7 +25,7 @@ RSpec.configure do |config|
           url: 'https://{defaultHost}',
           variables: {
             defaultHost: {
-              default: '127.0.0.1:3000/'
+              default: 'https://stark-badlands-38572.herokuapp.com/'
             }
           }
         }

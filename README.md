@@ -25,8 +25,12 @@ To get a local copy up and running, follow these steps:
 - You should also have **_Rails_** installed on your computer.
 - Clone this repository into your computer by running the following command in your terminal:
 
-```
-git clone https://github.com/Lembani/hotel-reservation-backend.git
+```bash
+> git clone https://github.com/Lembani/hotel-reservation-backend.git
+> cd hotel-reservation-backend
+> rails db:create
+> rails db:migrate
+> rails db:seed
 ```
 
 - Run this command in the cloned directory, to install required gems:
@@ -51,16 +55,14 @@ rails server
 rspec spec
 ```
 
+## Deployment
+
+The server was deployed on heroku, and runs on [this domain](https://stark-badlands-38572.herokuapp.com/api/v1/hotels).
+The above endpoint permits you to see all hotels available. Checkout the api documentation below for the other endpoints.
+
 ## API Documentation
-To access the API documentation,
-* Start your rails server by typing the following command in your terminal:
-```
-rails server
-```
-* When your server starts, migrate to the browser window where it's running and add the following endpoint in the address bar:
-`/api-docs`
-* There you go! A complete documentation of all the API endpoints available for this application.
-* **Enjoy!!!**
+Visit [this endpoint](https://stark-badlands-38572.herokuapp.com/api-docs) to see a complete documentation of all available endpoints for this API.
+We hope this helps you find your way around our API.
 
 ## Authors
 
