@@ -25,8 +25,12 @@ To get a local copy up and running, follow these steps:
 - You should also have **_Rails_** installed on your computer.
 - Clone this repository into your computer by running the following command in your terminal:
 
-```
-git clone https://github.com/Lembani/hotel-reservation-backend.git
+```bash
+> git clone https://github.com/Lembani/hotel-reservation-backend.git
+> cd hotel-reservation-backend
+> rails db:create
+> rails db:migrate
+> rails db:seed
 ```
 
 - Run this command in the cloned directory, to install required gems:
