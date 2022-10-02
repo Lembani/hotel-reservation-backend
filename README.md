@@ -28,15 +28,19 @@ To get a local copy up and running, follow these steps:
 ```bash
 > git clone https://github.com/Lembani/hotel-reservation-backend.git
 > cd hotel-reservation-backend
-> rails db:create
-> rails db:migrate
-> rails db:seed
 ```
 
 - Run this command in the cloned directory, to install required gems:
 
 ```
-bundle install
+> bundle install
+```
+
+- Then create the posgreSQL database needed for this app, run the migrations and seed data with the following commands:
+```bash
+> rails db:create
+> rails db:migrate
+> rails db:seed
 ```
 
 - Run `Rubocop -A` and fix linters errors, if any.
